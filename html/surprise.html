@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slideshow with Audio</title>
+  <style>
+    #slideshow-container {
+      max-width: 400px;
+      position: relative;
+      margin: auto;
+    }
+
+    .mySlides {
+      display: none;
+      width: 100%;
+      border: 2px solid #ccc; /* Add a border to the images */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow for aesthetics */
+    }
+
+    img {
+      width: 100%;
+      border-radius: 8px; /* Optional: Add border-radius for rounded corners */
+    }
+
+    audio {
+      width: 100%;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="slideshow-container">
+  <div class="mySlides">
+    <img src="11.jpg" alt="11">
+  </div>
+
+  <div class="mySlides">
+    <img src="12.jpg" alt="12">
+  </div>
+
+  <div class="mySlides">
+    <img src="13.jpg" alt="13">
+  </div>
+
+  <audio controls autoplay>
+    <source src="audio.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
+</div>
+
+<script>
+  let slideIndex = 0;
+  showSlides();
+
+  function showSlides() {
+    let i;
+    const slides = document.getElementsByClassName("mySlides");
+    
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+
+    slideIndex++;
+
+    if (slideIndex > slides.length) {
+      slideIndex = 1;
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    setTimeout(showSlides, 3000); // Change slide every 3 seconds
+  }
+</script>
+
+</body>
+</html>
